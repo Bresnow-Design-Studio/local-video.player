@@ -1,9 +1,19 @@
+.title {
+  text-align: center;
+  margin-top: 0;
+}
+
 .video-container {
   display: grid;
   gap: 1em;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.video {
+.flayer > img {
+  width: 100%;
+}
+
+.video-link {
   display: block;
-  width: 30em;
+  width: 100%;
 }
