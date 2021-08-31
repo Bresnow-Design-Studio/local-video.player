@@ -1,0 +1,20 @@
+{
+  "name": "local-video-player",
+  "version": "1.0.0",
+  "description": "Video player on your local network",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gustavo A.",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "ip": "^1.1.5"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.8",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.2"
+  }
+}
