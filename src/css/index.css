@@ -1,0 +1,9 @@
+.video-container {
+  display: grid;
+  gap: 1em;
+}
+
+.video {
+  display: block;
+  width: 30em;
+}
