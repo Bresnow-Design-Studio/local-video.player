@@ -1,11 +1,17 @@
 import { readFileSync } from 'fs'
 import path from 'path'
+import remove from '../ts/remove'
 
+const filename = remove.extension(
+  __filename.replace(__dirname, '').replace(/\\/g, '/')
+)
+
+const cssColors = readFileSync(path.join(__dirname, '../css/colors.css'))
 const cssFile: Buffer = readFileSync(
   path.join(__dirname, '../css/mainPage.css')
 )
 
-const css = `<style>${cssFile}</style>`
+const css = `<style>${cssColors}${cssFile}</style>`
 
 const mainPage = (videos?: string) => `
   <!DOCTYPE html>
