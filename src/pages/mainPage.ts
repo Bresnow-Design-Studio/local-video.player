@@ -5,7 +5,7 @@ const cssFile: Buffer = readFileSync(path.join(__dirname, '../css/index.css'))
 
 const css = `<style>${cssFile}</style>`
 
-const mainPage = (videos: string) => `
+const mainPage = (videos?: string) => `
   <!DOCTYPE html>
   <html lang="es">
     <head>
