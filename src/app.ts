@@ -2,21 +2,15 @@ import { IncomingMessage, ServerResponse } from 'http'
 import { Server } from 'node-static'
 import dataVideos, { Chapter } from './api/videos'
 import mainPage from './pages/mainPage'
+import videoPlayer from './pages/videoPlayer'
+import videoCard from './components/videoCard'
 
 const fileServer = new Server(dataVideos.path)
 
-const serieTest = dataVideos.data.get('doctor-milagro')
+const seriesTest = dataVideos.data.get('doctor-milagro')
 
-const videosElements = serieTest?.chapters.map((video: Chapter) =>
-  `
-    <a class="video-link" href="${video.path}">
-      <picture class="flayer" >
-        <img src="${serieTest?.poster}
-        " alt="${video.series} flayer"/>
-      </picture>
-      <label>${video.name}</label>
-    </a>
-  `.trim()
+const videosElements = seriesTest?.chapters.map((video: Chapter) =>
+  videoCard(video).trim()
 )
 
 const app = (req: IncomingMessage, res: ServerResponse) => {
@@ -25,6 +19,10 @@ const app = (req: IncomingMessage, res: ServerResponse) => {
       res
         .writeHead(200, { 'Content-Type': 'text/html' })
         .end(mainPage(videosElements?.join('')))
+    } else if (req.url?.startsWith('/play')) {
+      res
+        .writeHead(200, { 'Content-Type': 'text/html' })
+        .end(videoPlayer(req.url.replace('/play', '')))
     }
   }
   fileServer.serve(req, res)

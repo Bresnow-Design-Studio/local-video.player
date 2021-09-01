@@ -1,7 +1,9 @@
 import { readFileSync } from 'fs'
 import path from 'path'
 
-const cssFile: Buffer = readFileSync(path.join(__dirname, '../css/index.css'))
+const cssFile: Buffer = readFileSync(
+  path.join(__dirname, '../css/mainPage.css')
+)
 
 const css = `<style>${cssFile}</style>`
 
@@ -17,7 +19,7 @@ const mainPage = (videos?: string) => `
       ${css}
     </head>
     <body>
-      <h1 class="title">Videos</h1>
+      <h1 class="title">Series</h1>
       <div class="video-container">
         ${videos}
       </div>

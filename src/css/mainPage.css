@@ -1,0 +1,76 @@
+:root {
+  --light-grey: #e0e0e0;
+  --grey: #aeaeae;
+  --dark-grey: #9e9e9e;
+  --radius: 0.5em;
+  --white: #eeeeee;
+  --light-blue: #eaefff;
+  --blue: #3d5afe;
+  --dark-blue: #0039cb;
+  --black: #181818;
+  --green: #0ae027;
+  --dark-green: #1e3a1c;
+  --red: #d32f2f;
+  --wine: #9a0007;
+  --font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-family);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--light-grey);
+}
+
+a {
+  text-decoration: none;
+}
+
+.title {
+  text-align: center;
+  margin-top: 0.5em;
+}
+
+.video-container {
+  margin: 1em;
+  display: grid;
+  max-width: 100vw;
+  gap: 2em;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  text-align: center;
+}
+
+.video-card {
+  width: 100%;
+  max-width: 100%;
+  border: 0.1em solid var(--grey);
+  border-radius: var(--radius);
+  background-color: var(--light-grey);
+  color: var(--black);
+}
+
+.video-card__image > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+.video-card__name {
+  display: block;
+  padding: 0.25em 0;
+  font-size: 1.25em;
+  font-weight: normal;
+}
+
+.video-card:hover,
+.video-card:active {
+  background-color: var(--dark-grey);
+  color: var(--white);
+}

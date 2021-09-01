@@ -4,7 +4,7 @@ const videos = (filesPath: string[], videoExtensions: string[]): string[] => {
   )
 }
 
-const folders = (filesPath: string[]) => {
+const folders = (filesPath: string[]): string[] => {
   return filesPath.filter((filePath: string) => !/\.[a-z]+$/.test(filePath))
 }
 
