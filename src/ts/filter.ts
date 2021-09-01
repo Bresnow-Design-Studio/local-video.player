@@ -4,6 +4,10 @@ const videos = (filesPath: string[], videoExtensions: string[]): string[] => {
   )
 }
 
-const filter = { videos }
+const folders = (filesPath: string[]) => {
+  return filesPath.filter((filePath: string) => !/\.[a-z]+$/.test(filePath))
+}
+
+const filter = { videos, folders }
 
 export default filter

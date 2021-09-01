@@ -13,6 +13,7 @@ const mainPage = (videos?: string) => `
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>Home Video Player</title>
+      <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
       ${css}
     </head>
     <body>

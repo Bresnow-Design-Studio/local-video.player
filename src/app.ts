@@ -1,15 +1,14 @@
 import { IncomingMessage, ServerResponse } from 'http'
 import { Server } from 'node-static'
-import dataVideos, { Chapter } from './videos'
+import dataVideos, { Chapter } from './api/videos'
 import mainPage from './pages/mainPage'
 
 const fileServer = new Server(dataVideos.path)
 
-const serieTest = dataVideos.data.get('hercai')
+const serieTest = dataVideos.data.get('doctor-milagro')
 
-const videosElements = serieTest?.chapters
-  .map((video: Chapter) =>
-    `
+const videosElements = serieTest?.chapters.map((video: Chapter) =>
+  `
     <a class="video-link" href="${video.path}">
       <picture class="flayer" >
         <img src="${serieTest?.poster}
@@ -18,15 +17,14 @@ const videosElements = serieTest?.chapters
       <label>${video.name}</label>
     </a>
   `.trim()
-  )
-  .join('')
+)
 
 const app = (req: IncomingMessage, res: ServerResponse) => {
   if (req.method === 'GET') {
     if (req.url === '/') {
       res
         .writeHead(200, { 'Content-Type': 'text/html' })
-        .end(mainPage(videosElements))
+        .end(mainPage(videosElements?.join('')))
     }
   }
   fileServer.serve(req, res)

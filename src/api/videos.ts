@@ -1,7 +1,7 @@
 import { readdirSync } from 'fs'
 import path from 'path'
 import dotenv from 'dotenv'
-import filter from './ts/filter'
+import filter from '../ts/filter'
 dotenv.config()
 
 export interface Chapter {
@@ -14,7 +14,7 @@ const PATH_VIDEOS =
   process.env.PATH_VIDEOS || 'C:/Users/GUSTAVO/Downloads/Video/series'
 const videoExtensions = ['.mp4', '.mkv']
 
-const seriesFolder: string[] = readdirSync(PATH_VIDEOS)
+const seriesFolder: string[] = filter.folders(readdirSync(PATH_VIDEOS))
 
 let data: Map<string, { poster: string; chapters: Chapter[] }> = new Map()
 
@@ -30,7 +30,5 @@ seriesFolder.forEach((series: string) => {
     }))
   })
 })
-
-console.log(data.get('hercai'))
 
 export default { path: PATH_VIDEOS, series: seriesFolder, data }
