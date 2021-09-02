@@ -17,11 +17,11 @@ const app = (req: IncomingMessage, res: ServerResponse) => {
   if (req.method === 'GET') {
     if (req.url === '/') {
       res
-        .writeHead(200, { 'Content-Type': 'text/html' })
+        .writeHead(200, { 'Content-Type': 'text/html;charset=UTF-8' })
         .end(mainPage(videosElements?.join('')))
     } else if (req.url?.startsWith('/play')) {
       res
-        .writeHead(200, { 'Content-Type': 'text/html' })
+        .writeHead(200, { 'Content-Type': 'text/html;charset=UTF-8' })
         .end(videoPlayer(req.url.replace('/play', '')))
     }
   }

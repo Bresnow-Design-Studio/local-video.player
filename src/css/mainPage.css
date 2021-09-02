@@ -25,23 +25,38 @@ a {
 
 .video-container {
   margin: 1em;
-  display: grid;
   max-width: 100vw;
-  gap: 2em;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   text-align: center;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .video-card {
-  width: 100%;
+  width: 20%;
+  overflow: auto;
+  margin: 1em;
+  min-width: 20rem;
   max-width: 100%;
-  --card-color: var(--light-grey);
-  border: 0.1em solid var(--card-color);
+  border: 0.1em solid var(--light-grey);
   border-radius: var(--radius);
-  background-color: var(--card-color);
-  box-shadow: 2px 2px 3px var(--card-color);
+  background-color: var(--light-grey);
+  box-shadow: 2px 2px 3px var(--light-grey);
   color: var(--black);
   transition: 0.2s ease all;
+  cursor: pointer;
+}
+
+@supports (display: grid) {
+  .video-container {
+    display: grid;
+    gap: 2em;
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  }
+  .video-card {
+    width: 100%;
+    margin: 0;
+  }
 }
 
 .video-card__image > img {
@@ -61,6 +76,8 @@ a {
 
 .video-card:hover,
 .video-card:active {
-  --card-color: var(--dark-grey);
   color: var(--white);
+  border: 0.1em solid var(--dark-grey);
+  background-color: var(--dark-grey);
+  box-shadow: 2px 2px 3px var(--dark-grey);
 }
