@@ -23,7 +23,7 @@ const mainPage = (videos?: string) => `
       <title>Home Video Player</title>
       <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
       <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
-      <script>
+      <script type="text/javascript">
         cssVars({
           rootElement: document,
           shadowDOM: false,

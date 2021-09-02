@@ -7,7 +7,7 @@ const videoPlayer = (videoPath: string): string => {
   console.log(
     `Serie: ${query.get('series')} - Chapter: ${remove.extension(
       query.get('video') || ''
-    )})}`
+    )}`
   )
   return `
   <!DOCTYPE html>
