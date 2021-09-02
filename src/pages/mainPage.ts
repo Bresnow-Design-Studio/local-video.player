@@ -13,7 +13,7 @@ const cssFile: Buffer = readFileSync(
 
 const css = `<style>${cssColors}${cssFile}</style>`
 
-const mainPage = (videos?: string) => `
+const mainPage = (videosBox: string) => `
   <!DOCTYPE html>
   <html lang="es">
     <head>
@@ -40,9 +40,7 @@ const mainPage = (videos?: string) => `
     </head>
     <body>
       <h1 class="title">Series</h1>
-      <div class="video-container">
-        ${videos}
-      </div>
+      ${videosBox}
     </body>
   </html>
 `

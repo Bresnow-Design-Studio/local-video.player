@@ -1,24 +1,20 @@
 import { IncomingMessage, ServerResponse } from 'http'
 import { Server } from 'node-static'
-import dataVideos, { Chapter } from './api/videos'
+import videos from './api/videos'
 import mainPage from './pages/mainPage'
 import videoPlayer from './pages/videoPlayer'
-import videoCard from './components/videoCard'
+import videosBox from './components/videosBox'
 
-const fileServer = new Server(dataVideos.path)
+const fileServer = new Server(videos.path)
 
-const seriesTest = dataVideos.data.get('doctor-milagro')
-
-const videosElements = seriesTest?.chapters.map((video: Chapter) =>
-  videoCard(video).trim()
-)
+const seriesTest = videos.bySeries.get('doctor-milagro')
 
 const app = (req: IncomingMessage, res: ServerResponse) => {
   if (req.method === 'GET') {
     if (req.url === '/') {
       res
         .writeHead(200, { 'Content-Type': 'text/html;charset=UTF-8' })
-        .end(mainPage(videosElements?.join('')))
+        .end(mainPage(videosBox(videos.all)))
     } else if (req.url?.startsWith('/play')) {
       res
         .writeHead(200, { 'Content-Type': 'text/html;charset=UTF-8' })

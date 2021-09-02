@@ -16,19 +16,32 @@ const videoExtensions = ['.mp4', '.mkv']
 
 const seriesFolder: string[] = filter.folders(readdirSync(PATH_VIDEOS))
 
-let data: Map<string, { poster: string; chapters: Chapter[] }> = new Map()
+let bySeries: Map<string, { poster: string; chapters: Chapter[] }> = new Map()
+
+const allVideos: Chapter[] = []
 
 seriesFolder.forEach((series: string) => {
   const fileSeries = readdirSync(path.join(PATH_VIDEOS, series))
-  const videos = filter.videos(fileSeries, videoExtensions)
-  data.set(series, {
+  const videosSeries = filter.videos(fileSeries, videoExtensions)
+  bySeries.set(series, {
     poster: `/${series}/poster.jpg`,
-    chapters: videos.map((video: string) => ({
-      path: `/${series}/${video}`,
-      name: video,
-      series
-    }))
+    chapters: videosSeries.map((video: string) => {
+      const chapter: Chapter = {
+        path: `/${series}/${video}`,
+        name: video,
+        series
+      }
+      allVideos.push(chapter)
+      return chapter
+    })
   })
 })
 
-export default { path: PATH_VIDEOS, series: seriesFolder, data }
+const videos = {
+  path: PATH_VIDEOS,
+  series: seriesFolder,
+  bySeries,
+  all: allVideos
+}
+
+export default videos

@@ -9,13 +9,13 @@ const videoCard = (video: Chapter): string => {
     >
       <picture class="video-card__image" >
         <img 
-          src="${videos.data.get(video.series)?.poster}" 
+          src="${videos.bySeries.get(video.series)?.poster}" 
           alt="${video.series} flayer"
         />
       </picture>
       <label class="video-card__name">${remove.extension(video.name)}</label>
     </a>
-  `
+  `.trim()
 }
 
 export default videoCard

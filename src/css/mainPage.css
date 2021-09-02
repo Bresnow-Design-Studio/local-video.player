@@ -51,7 +51,6 @@ a {
   -webkit-transition: 0.2s ease all;
   -o-transition: 0.2s ease all;
   transition: 0.2s ease all;
-  cursor: pointer;
 }
 
 @supports (display: grid) {
@@ -83,6 +82,7 @@ a {
   padding: 0.25em 0;
   font-size: 1.25em;
   font-weight: normal;
+  cursor: pointer;
 }
 
 .video-card:hover,
