@@ -1,5 +1,5 @@
 import videos, { Chapter } from './../api/videos'
-import remove from '../ts/remove'
+import remove from '../functions/remove'
 
 const videoCard = (video: Chapter): string => {
   return `

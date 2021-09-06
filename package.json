@@ -4,6 +4,7 @@
   "description": "Video player on your local network",
   "main": "index.js",
   "scripts": {
+    "start": "node dist/server.js",
     "dev": "ts-node-dev src/server.ts"
   },
   "author": "Gustavo A.",

@@ -1,7 +1,7 @@
 import { readdirSync } from 'fs'
 import path from 'path'
 import dotenv from 'dotenv'
-import filter from '../ts/filter'
+import filter from '../functions/filter'
 dotenv.config()
 
 export interface Chapter {

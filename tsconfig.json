@@ -1,13 +1,17 @@
 {
   "compilerOptions": {
-    "target": "ES6",
+    "target": "ES3",
     "module": "CommonJS",
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "/",
+    "paths": {
+      "@css": ["@assets/css"]
+    }
   },
   "include": ["src/*"]
 }

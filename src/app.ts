@@ -7,14 +7,16 @@ import videosBox from './components/videosBox'
 
 const fileServer = new Server(videos.path)
 
-const seriesTest = videos.bySeries.get('doctor-milagro')
+const videoTest = videos.bySeries.get('doctor-milagro')
+
+console.log(videoTest)
 
 const app = (req: IncomingMessage, res: ServerResponse) => {
   if (req.method === 'GET') {
     if (req.url === '/') {
       res
         .writeHead(200, { 'Content-Type': 'text/html;charset=UTF-8' })
-        .end(mainPage(videosBox(videos.all)))
+        .end(mainPage(videosBox(videoTest?.chapters || [])))
     } else if (req.url?.startsWith('/play')) {
       res
         .writeHead(200, { 'Content-Type': 'text/html;charset=UTF-8' })
