@@ -10,11 +10,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: var(--black);
-  color: var(--light-grey);
-}
-
 a {
   text-decoration: none;
 }
@@ -81,7 +76,7 @@ a {
   display: block;
   padding: 0.25em 0;
   font-size: 1.25em;
-  font-weight: normal;
+  font-weight: bold;
   cursor: pointer;
 }
 
@@ -91,5 +86,5 @@ a {
   border-color: var(--dark-grey);
   background-color: var(--dark-grey);
   -webkit-box-shadow: 2px 2px 3px var(--dark-grey);
-  box-shadow: 2px 2px 20px var(--dark-grey);
+  box-shadow: 2px 2px 3px var(--dark-grey);
 }
