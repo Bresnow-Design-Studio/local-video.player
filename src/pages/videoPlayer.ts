@@ -1,3 +1,4 @@
+import { previousVideoLink, nextVideoLink } from './../components/videoLink'
 import { readFileSync } from 'fs'
 import path from 'path'
 import videos, { Chapter } from '../api/videos'
@@ -40,31 +41,15 @@ const videoPlayer = (videoPath: string): string => {
     </head>
     <body>
       <h1 class="title">${remove.extension(video?.name)}</h1>
-      <video class="video-player" controls autoplay>
-        <source src="${video?.path}"></source>
-      </video>
-      ${
-        video?.previous
-          ? `<a 
-              class="video-link previous" 
-              href="/play?series=${video.previous.series}&video=${video.previous.name}"
-            >
-              Video anterior
-            </a>`
-          : ''
-      }
-
-      ${
-        video?.next
-          ? `<a 
-              class="video-link next" 
-              href="/play?series=${video.next.series}&video=${video.next.name}"
-            >
-              Siguiente video
-            </a>`
-          : ''
-      }
-
+      <div class="video-box">
+        <video class="video-player" controls autoplay preload="auto">
+          <source src="${video?.path}"></source>
+        </video>
+        <div class="video-links">
+          ${video?.previous ? previousVideoLink(video) : ''}
+          ${video?.next ? nextVideoLink(video) : ''}
+        </div>
+      </div>
     </body>
   </html>
   `.trim()
