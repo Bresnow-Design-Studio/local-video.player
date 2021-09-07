@@ -27,7 +27,7 @@ a {
   margin: 0 auto;
   -o-object-fit: contain;
   object-fit: contain;
-  width: 80%;
+  max-width: 90%;
   max-height: 75vh;
   min-height: -webkit-fit-content;
   min-height: -moz-fit-content;
