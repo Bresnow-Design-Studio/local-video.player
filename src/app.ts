@@ -9,8 +9,6 @@ const fileServer = new Server(videos.path)
 
 const videoTest = videos.bySeries.get('doctor-milagro')
 
-console.log(videoTest)
-
 const app = (req: IncomingMessage, res: ServerResponse) => {
   if (req.method === 'GET') {
     if (req.url === '/') {
