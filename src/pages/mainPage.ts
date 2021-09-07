@@ -1,5 +1,5 @@
 import { readFileSync } from 'fs'
-import path, { join } from 'path'
+import path from 'path'
 import remove from '../functions/remove'
 
 const filename = remove.extension(
@@ -9,6 +9,7 @@ const filename = remove.extension(
 const cssColors = readFileSync(
   path.join(__dirname, '../../assets/css/colors.css')
 )
+
 const cssFile: Buffer = readFileSync(
   path.join(__dirname, '../../assets/css/mainPage.css')
 )

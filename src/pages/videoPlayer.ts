@@ -5,6 +5,7 @@ import remove from '../functions/remove'
 const cssColors = readFileSync(
   path.join(__dirname, '../../assets/css/colors.css')
 )
+
 const cssFile: Buffer = readFileSync(
   path.join(__dirname, '../../assets/css/videoPlayer.css')
 )
@@ -27,6 +28,7 @@ const videoPlayer = (videoPath: string): string => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>${query.get('series')} - Home Video Player</title>
       <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+      ${css}
     </head>
     <body>
       <h1 class="title">${remove.extension(query.get('video') || '')}</h1>
