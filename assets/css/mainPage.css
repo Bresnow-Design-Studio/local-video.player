@@ -14,13 +14,19 @@ a {
   text-decoration: none;
 }
 
+td {
+  border-collapse: collapse;
+  border: 2px solid transparent;
+}
+
 .title {
   text-align: center;
-  margin-top: 0.5em;
+  margin: 0.5em 0;
+  font-size: 1.5em;
 }
 
 .video-container {
-  margin: 1em;
+  margin: 0 auto;
   max-width: 100vw;
   text-align: center;
   -webkit-box-pack: justify;
@@ -32,10 +38,10 @@ a {
 
 .video-card {
   display: block;
-  width: 20%;
+  width: 95%;
   overflow: auto;
-  margin: 1em;
-  min-width: 20rem;
+  margin: 0 auto;
+  min-width: 15rem;
   max-width: 100%;
   border: 0.1em solid var(--light-grey);
   border-radius: var(--radius);
@@ -60,7 +66,7 @@ a {
 .video-card__name {
   display: block;
   padding: 0.4em 0;
-  font-size: 1.25em;
+  font-size: 1.1em;
   font-weight: bold;
   cursor: pointer;
 }
