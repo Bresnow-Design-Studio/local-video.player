@@ -41,6 +41,7 @@ const videoPlayer = (videoPath: string): string => {
       <script type="text/javascript">
         cssVars()
       </script>
+      <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
       <link
         rel="stylesheet"
         href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
