@@ -40,8 +40,8 @@ td {
   display: block;
   width: 95%;
   overflow: auto;
-  margin: 0 auto;
-  min-width: 15rem;
+  margin: 0.5em auto;
+  min-width: 33%;
   max-width: 100%;
   border: 0.1em solid var(--light-grey);
   border-radius: var(--radius);

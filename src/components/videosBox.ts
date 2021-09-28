@@ -16,7 +16,7 @@ export const videosBox = (videos: Chapter[]): string => {
 export const oldVideosBox = (videos: Chapter[]): string => {
   const videoElements = videos.map((video: Chapter) => videoCard(video))
 
-  const tableRows: string[][] = separator(videoElements, 4)
+  const tableRows: string[][] = separator(videoElements, 3)
 
   return `
     <table class="video-container">

@@ -19,8 +19,7 @@ export interface Series {
   lastChapter: Chapter
 }
 
-const PATH_VIDEOS =
-  process.env.PATH_VIDEOS || 'C:/Users/GUSTAVO/Downloads/Video/series'
+const PATH_VIDEOS = process.env.PATH_VIDEOS || ''
 const videoExtensions = ['.mp4', '.mkv']
 
 const seriesFolder: string[] = filter.folders(readdirSync(PATH_VIDEOS))
@@ -37,18 +36,18 @@ seriesFolder.forEach((series: string) => {
       videoPathA < videoPathB ? -1 : videoPathA > videoPathB ? 1 : 0
     )
   const chapters = videosSeries
-    .map(
-      (video: string): Chapter => ({
+    .map((video: string): Chapter => {
+      const c: Chapter = {
         path: `/${series}/${video}`,
         name: video,
         series
-      })
-    )
+      }
+      allVideos.push({ ...c })
+      return c
+    })
     .map((c: Chapter, i: number, self: Chapter[]) => {
       c.previous = self[i - 1]
       c.next = self[i + 1]
-
-      allVideos.push(c)
       return c
     })
 
@@ -59,6 +58,8 @@ seriesFolder.forEach((series: string) => {
     lastChapter: chapters[chapters.length - 1]
   })
 })
+
+console.log(allVideos)
 
 const videos = {
   path: PATH_VIDEOS,
