@@ -17,6 +17,7 @@ a {
 td {
   border-collapse: collapse;
   border: 2px solid transparent;
+  max-width: 33vw;
 }
 
 .title {
@@ -66,7 +67,7 @@ td {
 .video-card__name {
   display: block;
   padding: 0.4em 0;
-  font-size: 1.1em;
+  font-size: 1.5em;
   font-weight: bold;
   cursor: pointer;
 }
